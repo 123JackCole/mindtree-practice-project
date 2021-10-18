@@ -236,7 +236,7 @@ namespace EMS_backend.Controllers
               Gender = "Agender",
               Role = "Estimator"
             }
-    };
+        };
 
         [HttpGet]
         /*public IEnumerable<string> Get()
