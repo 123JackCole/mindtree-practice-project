@@ -5,4 +5,8 @@
     <RootNamespace>EMS_backend</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EMS-backend.Data\EMS-backend.Data.csproj" />
+  </ItemGroup>
+
 </Project>

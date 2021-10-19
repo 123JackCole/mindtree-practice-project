@@ -38,3 +38,5 @@ C:\Users\Jack\Code\mindtree-practice-project\EMS-backend\EMS-backend\obj\Debug\n
 C:\Users\Jack\Code\mindtree-practice-project\EMS-backend\EMS-backend\obj\Debug\net5.0\EMS-backend.pdb
 C:\Users\Jack\Code\mindtree-practice-project\EMS-backend\EMS-backend\obj\Debug\net5.0\EMS-backend.genruntimeconfig.cache
 C:\Users\Jack\Code\mindtree-practice-project\EMS-backend\EMS-backend\obj\Debug\net5.0\EMS-backend.csproj.CopyComplete
+C:\Users\Jack\Code\mindtree-practice-project\EMS-backend\EMS-backend\bin\Debug\net5.0\EMS-backend.Data.dll
+C:\Users\Jack\Code\mindtree-practice-project\EMS-backend\EMS-backend\bin\Debug\net5.0\EMS-backend.Data.pdb

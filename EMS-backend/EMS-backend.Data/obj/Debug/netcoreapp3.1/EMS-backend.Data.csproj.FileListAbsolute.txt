@@ -1,0 +1,10 @@
+C:\Users\Jack\Code\mindtree-practice-project\EMS-backend\EMS-backend.Data\bin\Debug\netcoreapp3.1\EMS-backend.Data.deps.json
+C:\Users\Jack\Code\mindtree-practice-project\EMS-backend\EMS-backend.Data\bin\Debug\netcoreapp3.1\EMS-backend.Data.dll
+C:\Users\Jack\Code\mindtree-practice-project\EMS-backend\EMS-backend.Data\bin\Debug\netcoreapp3.1\EMS-backend.Data.pdb
+C:\Users\Jack\Code\mindtree-practice-project\EMS-backend\EMS-backend.Data\obj\Debug\netcoreapp3.1\EMS-backend.Data.csproj.AssemblyReference.cache
+C:\Users\Jack\Code\mindtree-practice-project\EMS-backend\EMS-backend.Data\obj\Debug\netcoreapp3.1\EMS-backend.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jack\Code\mindtree-practice-project\EMS-backend\EMS-backend.Data\obj\Debug\netcoreapp3.1\EMS-backend.Data.AssemblyInfoInputs.cache
+C:\Users\Jack\Code\mindtree-practice-project\EMS-backend\EMS-backend.Data\obj\Debug\netcoreapp3.1\EMS-backend.Data.AssemblyInfo.cs
+C:\Users\Jack\Code\mindtree-practice-project\EMS-backend\EMS-backend.Data\obj\Debug\netcoreapp3.1\EMS-backend.Data.csproj.CoreCompileInputs.cache
+C:\Users\Jack\Code\mindtree-practice-project\EMS-backend\EMS-backend.Data\obj\Debug\netcoreapp3.1\EMS-backend.Data.dll
+C:\Users\Jack\Code\mindtree-practice-project\EMS-backend\EMS-backend.Data\obj\Debug\netcoreapp3.1\EMS-backend.Data.pdb

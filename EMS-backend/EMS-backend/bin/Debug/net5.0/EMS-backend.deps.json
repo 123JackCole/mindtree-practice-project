@@ -33,6 +33,7 @@
     ".NETCoreApp,Version=v5.0": {
       "EMS-backend/1.0.0": {
         "dependencies": {
+          "EMS-backend.Data": "1.0.0",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "5.0.0.0",
@@ -322,6 +323,14 @@
         },
         "compile": {
           "EMS-backend.dll": {}
+        }
+      },
+      "EMS-backend.Data/1.0.0": {
+        "runtime": {
+          "EMS-backend.Data.dll": {}
+        },
+        "compile": {
+          "EMS-backend.Data.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
@@ -2026,6 +2035,11 @@
   },
   "libraries": {
     "EMS-backend/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EMS-backend.Data/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
