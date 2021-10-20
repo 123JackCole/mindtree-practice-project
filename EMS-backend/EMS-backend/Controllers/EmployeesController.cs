@@ -18,45 +18,89 @@ namespace EMS_backend.Controllers
         private IEmployeeRepository employees = new EmployeeRepository();
 
         [HttpGet]
-        public ActionResult<IEnumerable<Employee>> GetAllEmployees()
+        public async Task<ActionResult<IEnumerable<Employee>>> GetAllEmployees()
         {
-            return employees.GetAllEmployees();
+            try
+            {
+                return await employees.GetAllEmployees();
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving employee list");
+            }
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Employee> GetEmployee(int id)
+        public async Task<ActionResult<Employee>> GetEmployee(int id)
         {
-            var employee = employees.GetEmployee(id);
-            return employee == null ? NotFound() : employee;
+            try
+            {
+                var employee = await employees.GetEmployee(id);
+                return employee == null ? NotFound() : employee;
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving employee");
+            }
+                
         }
 
         [HttpPost]
-        public ActionResult<Employee> CreateEmployee(Employee employee)
+        public async Task<ActionResult<Employee>> CreateEmployee(Employee employee)
         {
-            if (employee == null) return BadRequest();
-            // this.ModelState
-            // add isvalid for adding and editing
+            try
+            {
+                if (employee == null) return BadRequest();
+                // this.ModelState
+                // add isvalid for adding and editing
 
-            var createdEmployee = employees.AddEmployee(employee);
+                var createdEmployee = await employees.AddEmployee(employee);
 
-            return CreatedAtAction(nameof(GetEmployee), new { id = createdEmployee.Id }, createdEmployee);
+                return CreatedAtAction(nameof(GetEmployee), new { id = createdEmployee.Id }, createdEmployee);
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error creating new employee");
+            }
 
         }
 
-        // edit PUT request
+        [HttpPut]
+        public async Task<ActionResult<Employee>> EditEmployee(Employee employee) 
+        {
+            try
+            {
+                var employeeToEdit = await employees.GetEmployee(id);
+
+                if (employeeToEdit == null) return NotFound($"Employee with Id = {id} not found");
+
+                return await employees.EditEmployee(employeeToEdit);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error updating data");
+            }
+        }
 
         [HttpDelete]
-        public ActionResult<Employee> DeleteEmployee(int id)
+        public async Task<ActionResult<Employee>> DeleteEmployee(int id)
         {
-            var employeeToDelete = employees.GetEmployee(id);
-
-            if (employeeToDelete == null)
+            try
             {
-                return NotFound($"Employee with Id = {id} not found");
-            }
+                var employeeToDelete = employees.GetEmployee(id);
 
-            employees.DeleteEmployee(employeeToDelete);
-            return employeeToDelete;
+                if (employeeToDelete == null)
+                {
+                    return NotFound($"Employee with Id = {id} not found");
+                }
+
+                await employees.DeleteEmployee(employeeToDelete);
+                return employeeToDelete;
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error deleting data");
+            }
 
         }
 
