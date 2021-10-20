@@ -34,12 +34,16 @@ namespace EMS_backend.Controllers
         public ActionResult<Employee> CreateEmployee(Employee employee)
         {
             if (employee == null) return BadRequest();
+            // this.ModelState
+            // add isvalid for adding and editing
 
             var createdEmployee = employees.AddEmployee(employee);
 
             return CreatedAtAction(nameof(GetEmployee), new { id = createdEmployee.Id }, createdEmployee);
 
         }
+
+        // edit PUT request
 
         [HttpDelete]
         public ActionResult<Employee> DeleteEmployee(int id)

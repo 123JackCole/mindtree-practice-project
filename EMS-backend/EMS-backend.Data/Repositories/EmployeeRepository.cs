@@ -255,6 +255,7 @@ namespace EMS_backend.Data.Repositories
         {
             return employees.FindIndex(ind => ind.Equals(employeeToFind));
         }
+        
         public Employee EditEmployee(Employee employeeToEdit)
         {
             return employees[employees.FindIndex(ind => ind.Equals(employeeToEdit))] = employeeToEdit;
