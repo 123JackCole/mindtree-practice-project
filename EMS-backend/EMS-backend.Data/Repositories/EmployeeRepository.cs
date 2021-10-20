@@ -243,5 +243,26 @@ namespace EMS_backend.Data.Repositories
         {
             return employees.FirstOrDefault(x => x.Id == id);
         }
+
+        // alter return types once frontend in
+        public Employee AddEmployee(Employee employeeToAdd)
+        {
+            employees.Add(employeeToAdd);
+            return employeeToAdd;
+        }
+
+        private int FindEmployeeIndex(Employee employeeToFind)
+        {
+            return employees.FindIndex(ind => ind.Equals(employeeToFind));
+        }
+        public Employee EditEmployee(Employee employeeToEdit)
+        {
+            return employees[employees.FindIndex(ind => ind.Equals(employeeToEdit))] = employeeToEdit;
+        }
+
+        public bool DeleteEmployee(Employee employeeToDelete)
+        {
+            return employees.Remove(employeeToDelete);
+        }
     }
 }
