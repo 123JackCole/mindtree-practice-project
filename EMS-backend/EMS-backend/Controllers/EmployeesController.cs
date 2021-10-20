@@ -51,10 +51,13 @@ namespace EMS_backend.Controllers
             try
             {
                 if (employee == null) return BadRequest();
-                // this.ModelState
-                // add isvalid for adding and editing
+                if (ModelState.IsValid) {
+                    var createdEmployee = await employees.AddEmployee(employee);
 
-                var createdEmployee = await employees.AddEmployee(employee);
+                    return CreatedAtAction(nameof(GetEmployee), new { id = createdEmployee.Id }, createdEmployee);
+                } else {
+                    return StatusCode(StatusCodes.Status500InternalServerError, "Employee is not valid");
+                }
 
                 return CreatedAtAction(nameof(GetEmployee), new { id = createdEmployee.Id }, createdEmployee);
             }
@@ -73,6 +76,10 @@ namespace EMS_backend.Controllers
                 var employeeToEdit = await employees.GetEmployee(id);
 
                 if (employeeToEdit == null) return NotFound($"Employee with Id = {id} not found");
+
+                if (!ModelState.IsValid) {
+                    return StatusCode(StatusCodes.Status500InternalServerError, "Employee is not valid");
+                }
 
                 return await employees.EditEmployee(employeeToEdit);
             }
