@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jack\\Code\\mindtree-practice-project\\EMS-backend\\EMS-backend.Data\\EMS-backend.Data.csproj": {}
+    "C:\\Users\\v-jackcole\\code\\mindtree-practice-project\\EMS-backend\\EMS-backend.Data\\EMS-backend.Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jack\\Code\\mindtree-practice-project\\EMS-backend\\EMS-backend.Data\\EMS-backend.Data.csproj": {
+    "C:\\Users\\v-jackcole\\code\\mindtree-practice-project\\EMS-backend\\EMS-backend.Data\\EMS-backend.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jack\\Code\\mindtree-practice-project\\EMS-backend\\EMS-backend.Data\\EMS-backend.Data.csproj",
+        "projectUniqueName": "C:\\Users\\v-jackcole\\code\\mindtree-practice-project\\EMS-backend\\EMS-backend.Data\\EMS-backend.Data.csproj",
         "projectName": "EMS-backend.Data",
-        "projectPath": "C:\\Users\\Jack\\Code\\mindtree-practice-project\\EMS-backend\\EMS-backend.Data\\EMS-backend.Data.csproj",
-        "packagesPath": "C:\\Users\\Jack\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jack\\Code\\mindtree-practice-project\\EMS-backend\\EMS-backend.Data\\obj\\",
+        "projectPath": "C:\\Users\\v-jackcole\\code\\mindtree-practice-project\\EMS-backend\\EMS-backend.Data\\EMS-backend.Data.csproj",
+        "packagesPath": "C:\\Users\\v-jackcole\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\v-jackcole\\code\\mindtree-practice-project\\EMS-backend\\EMS-backend.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Jack\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\v-jackcole\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
