@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace EMS_backend.Data.Repositories
 {
@@ -234,35 +235,39 @@ namespace EMS_backend.Data.Repositories
             }
         };
 
-        public List<Employee> GetAllEmployees()
+        public async Task<IEnumerable<Employee>> GetAllEmployees()
         {
+            await Task.Delay(1000);
             return employees;
         }
 
-        public Employee GetEmployee(int id)
+        public async Task<Employee> GetEmployee(int id)
         {
+            await Task.Delay(1000);
             return employees.FirstOrDefault(x => x.Id == id);
         }
 
-        // alter return types once frontend in
-        public Employee AddEmployee(Employee employeeToAdd)
+        public async Task<Employee> AddEmployee(Employee employeeToAdd)
         {
+            await Task.Delay(1000);
             employees.Add(employeeToAdd);
             return employeeToAdd;
         }
 
-        private int FindEmployeeIndex(Employee employeeToFind)
+        /*private int FindEmployee(Employee employeeToFind)
         {
             return employees.FindIndex(ind => ind.Equals(employeeToFind));
-        }
-        
-        public Employee EditEmployee(Employee employeeToEdit)
+        }*/
+
+        public async Task<Employee> EditEmployee(Employee employeeToEdit, Employee editedEmployee)
         {
-            return employees[employees.FindIndex(ind => ind.Equals(employeeToEdit))] = employeeToEdit;
+            await Task.Delay(1000);
+            return employees[employees.FindIndex(ind => ind.Equals(employeeToEdit))] = editedEmployee;
         }
 
-        public bool DeleteEmployee(Employee employeeToDelete)
+        public async Task<bool> DeleteEmployee(Employee employeeToDelete)
         {
+            await Task.Delay(1000);
             return employees.Remove(employeeToDelete);
         }
     }

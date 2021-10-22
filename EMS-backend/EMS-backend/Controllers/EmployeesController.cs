@@ -15,14 +15,20 @@ namespace EMS_backend.Controllers
     public class EmployeesController : ControllerBase
     {
 
-        private IEmployeeRepository employees = new EmployeeRepository();
+        private readonly IEmployeeRepository employees;
+
+        public EmployeesController(IEmployeeRepository employeeRepository)
+        {
+            this.employees = employeeRepository;
+        }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Employee>>> GetAllEmployees()
         {
             try
             {
-                return await employees.GetAllEmployees();
+                IEnumerable<Employee> returnedEmployees = await employees.GetAllEmployees();
+                return this.Ok(returnedEmployees);
             }
             catch
             {
@@ -36,13 +42,13 @@ namespace EMS_backend.Controllers
             try
             {
                 var employee = await employees.GetEmployee(id);
-                return employee == null ? NotFound() : employee;
+                return employee == null ? StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving employee") : this.Ok(employee);
             }
             catch
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving employee");
             }
-                
+
         }
 
         [HttpPost]
@@ -51,15 +57,17 @@ namespace EMS_backend.Controllers
             try
             {
                 if (employee == null) return BadRequest();
-                if (ModelState.IsValid) {
+                if (ModelState.IsValid)
+                {
                     var createdEmployee = await employees.AddEmployee(employee);
 
                     return CreatedAtAction(nameof(GetEmployee), new { id = createdEmployee.Id }, createdEmployee);
-                } else {
+                }
+                else
+                {
                     return StatusCode(StatusCodes.Status500InternalServerError, "Employee is not valid");
                 }
 
-                return CreatedAtAction(nameof(GetEmployee), new { id = createdEmployee.Id }, createdEmployee);
             }
             catch
             {
@@ -69,19 +77,22 @@ namespace EMS_backend.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult<Employee>> EditEmployee(Employee employee) 
+        public async Task<ActionResult<Employee>> EditEmployee(int id, Employee editedEmployee)
         {
             try
             {
+                if (id != editedEmployee.Id) return BadRequest("Employee Id does not match");
+
                 var employeeToEdit = await employees.GetEmployee(id);
 
                 if (employeeToEdit == null) return NotFound($"Employee with Id = {id} not found");
 
-                if (!ModelState.IsValid) {
+                if (!ModelState.IsValid)
+                {
                     return StatusCode(StatusCodes.Status500InternalServerError, "Employee is not valid");
                 }
 
-                return await employees.EditEmployee(employeeToEdit);
+                return await employees.EditEmployee(employeeToEdit, editedEmployee);
             }
             catch (Exception)
             {
@@ -90,19 +101,19 @@ namespace EMS_backend.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult<Employee>> DeleteEmployee(int id)
+        public async Task<ActionResult> DeleteEmployee(int id)
         {
             try
             {
-                var employeeToDelete = employees.GetEmployee(id);
+                var employeeToDelete = await employees.GetEmployee(id);
 
                 if (employeeToDelete == null)
                 {
-                    return NotFound($"Employee with Id = {id} not found");
+                    return this.BadRequest($"Employee with Id = {id} not found");
                 }
 
-                await employees.DeleteEmployee(employeeToDelete);
-                return employeeToDelete;
+                employees.DeleteEmployee(employeeToDelete);
+                return this.NoContent();
             }
             catch (Exception)
             {
