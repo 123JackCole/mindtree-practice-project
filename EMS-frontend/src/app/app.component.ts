@@ -9,10 +9,10 @@ import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 export class AppComponent {
   title = 'EMS';
   genders = ['male', 'female'];
-  signupForm: FormGroup | undefined; //resolve intitalization
+  newEmployeeForm!: FormGroup;
 
   ngOnInit() {
-    this.signupForm = new FormGroup({
+    this.newEmployeeForm = new FormGroup({
       'employeeData': new FormGroup({
         'firstName': new FormControl(null, Validators.required),
         'email': new FormControl(null, [Validators.email, Validators.required])
@@ -22,6 +22,6 @@ export class AppComponent {
   }
 
   onSubmit() {
-    console.log(this.signupForm)
+    console.log(this.newEmployeeForm)
   }
 }

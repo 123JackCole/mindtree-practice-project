@@ -1,3 +1,5 @@
+
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
@@ -10,8 +12,8 @@
                    formControlName="firstName"
                    class="form-control" />
             <span *ngIf="
-                !signupForm.get('employeeData.firstName').valid &&
-                signupForm.get('employeeData.firstName').touched
+                !newEmployeeForm.get('employeeData.firstName')!.valid &&
+                newEmployeeForm.get('employeeData.firstName')!.touched
               "
                   class="help-block">Please enter a valid name!</span>
           </div>
@@ -22,8 +24,8 @@
                    formControlName="email"
                    class="form-control" />
             <span *ngIf="
-                !signupForm.get('employeeData.email').valid &&
-                signupForm.get('employeeData.email').touched
+                !newEmployeeForm.get('employeeData.email')!.valid &&
+                newEmployeeForm.get('employeeData.email')!.touched
               "
                   class="help-block">Please enter a valid email!</span>
           </div>
@@ -35,7 +37,7 @@
           </label>
         </div>
         <span *ngIf="
-          !signupForm.get('gender').valid && signupForm.get('gender').touched
+          !newEmployeeForm.get('gender')!.valid && newEmployeeForm.get('gender')!.touched
           "
               class="help-block">
           Please enter valid data!
