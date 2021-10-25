@@ -21,7 +21,7 @@ namespace EMS_backend.Data.Models
 
         public string Phone { get; set; }
 
-        public DateTime Birthday { get; set; }
+        public DateTime DateOfBirth { get; set; }
 
         public string Address { get; set; }
 

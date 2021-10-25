@@ -12,22 +12,23 @@ export class AppComponent {
   genders = ['male', 'female'];
   newEmployeeForm!: FormGroup;
 
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.fetchEmployees();
     this.newEmployeeForm = new FormGroup({
-      'employeeData': new FormGroup({
-        'firstName': new FormControl(null, Validators.required),
-        'email': new FormControl(null, [Validators.email, Validators.required])
-      }),
-      'gender': new FormControl('male')
+      'firstName': new FormControl(null, Validators.required),
+      'lastName': new FormControl(null, Validators.required),
+      'email': new FormControl(null, [Validators.email, Validators.required]),
+      'phone': new FormControl(null, Validators.required),
+      'dateOfBirth': new FormControl(Date.now, Validators.required),
+      'address': new FormControl(null, Validators.required),
+      'gender': new FormControl('male'),
+      'position': new FormControl('SDE1', Validators.required),
     });
   }
 
-  onSubmit() {
+  onNewEmployeeSubmit() {
     console.log(this.newEmployeeForm)
   }
 
