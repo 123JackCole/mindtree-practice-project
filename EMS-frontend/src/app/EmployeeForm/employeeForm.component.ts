@@ -1,21 +1,15 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-employeeForm',
+  templateUrl: './employeeForm.component.html'
 })
-export class AppComponent {
-  title = 'EMS';
+export class EmployeeFormComponent {
   genders = ['male', 'female'];
   employeeForm!: FormGroup;
 
-  constructor(private http: HttpClient) { }
-
   ngOnInit() {
-    this.fetchEmployees();
     this.employeeForm = new FormGroup({
       'firstName': new FormControl(null, Validators.required),
       'lastName': new FormControl(null, Validators.required),
@@ -30,15 +24,5 @@ export class AppComponent {
 
   onSubmit() {
     console.log(this.employeeForm)
-  }
-
-  onCreateEmployee() {
-
-  }
-
-  private fetchEmployees() {
-    this.http.get('https://localhost:44337/api/employees').subscribe(employees => {
-      console.log(employees);
-    });
   }
 }
