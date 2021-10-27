@@ -19,10 +19,10 @@ namespace EMS_backend.Data.Repositories
               LastName = "Drohan",
               Email = "edrohan0@fema.gov",
               Phone = "273-766-7429",
-              Birthday = DateTime.Parse("02/27/1988"),
+              DateOfBirth = DateTime.Parse("02/27/1988"),
               Address = "02 Heath Drive",
-              Gender = "Bigender",
-              Role = "Estimator" }
+              Gender = "Male",
+              Role = "SDE1" }
             ,
             new Employee {
               Id = 2,
@@ -30,9 +30,9 @@ namespace EMS_backend.Data.Repositories
               LastName = "Truter",
               Email = "btruter1@webmd.com",
               Phone = "781-121-0615",
-              Birthday = DateTime.Parse("02/10/1987"),
+              DateOfBirth = DateTime.Parse("02/10/1987"),
               Address = "9744 Vermont Terrace",
-              Gender = "Agender",
+              Gender = "Male",
               Role = "Supervisor"
             },
             new Employee {
@@ -41,10 +41,10 @@ namespace EMS_backend.Data.Repositories
               LastName = "Pavluk",
               Email = "kpavluk2@addtoany.com",
               Phone = "913-640-7043",
-              Birthday = DateTime.Parse("07/08/1962"),
+              DateOfBirth = DateTime.Parse("07/08/1962"),
               Address = "1282 Anzinger Street",
               Gender = "Female",
-              Role = "Construction Manager"
+              Role = "Project Manager"
             },
             new Employee {
               Id = 4,
@@ -52,10 +52,10 @@ namespace EMS_backend.Data.Repositories
               LastName = "Shoesmith",
               Email = "mshoesmith3@comcast.net",
               Phone = "868-704-9877",
-              Birthday = DateTime.Parse("12/14/1987"),
+              DateOfBirth = DateTime.Parse("12/14/1987"),
               Address = "8561 Browning Trail",
               Gender = "Female",
-              Role = "Construction Worker"
+              Role = "SD3"
             },
             new Employee {
               Id = 5,
@@ -63,10 +63,10 @@ namespace EMS_backend.Data.Repositories
               LastName = "Adelman",
               Email = "vadelman4@google.co.jp",
               Phone = "893-657-7144",
-              Birthday = DateTime.Parse("04/24/1992"),
+              DateOfBirth = DateTime.Parse("04/24/1992"),
               Address = "67194 Hayes Way",
-              Gender = "Non-binary",
-              Role = "Architect"
+              Gender = "Female",
+              Role = "SDE2"
             },
             new Employee {
               Id = 6,
@@ -74,10 +74,10 @@ namespace EMS_backend.Data.Repositories
               LastName = "Traves",
               Email = "ntraves5@myspace.com",
               Phone = "203-564-7818",
-              Birthday = DateTime.Parse("01/18/1996"),
+              DateOfBirth = DateTime.Parse("01/18/1996"),
               Address = "87 Coolidge Street",
-              Gender = "Genderfluid",
-              Role = "Construction Worker"
+              Gender = "Female",
+              Role = "SDE3"
             },
             new Employee {
               Id = 7,
@@ -85,10 +85,10 @@ namespace EMS_backend.Data.Repositories
               LastName = "Boykett",
               Email = "gboykett6@amazon.com",
               Phone = "149-528-0025",
-              Birthday = DateTime.Parse("03/23/1941"),
+              DateOfBirth = DateTime.Parse("03/23/1941"),
               Address = "0 Arapahoe Place",
-              Gender = "Bigender",
-              Role = "Project Manager"
+              Gender = "Female",
+              Role = "SDE1"
             },
             new Employee {
               Id = 8,
@@ -96,10 +96,10 @@ namespace EMS_backend.Data.Repositories
               LastName = "Brimham",
               Email = "jbrimham7@huffingtonpost.com",
               Phone = "348-291-5856",
-              Birthday = DateTime.Parse("06/16/1964"),
+              DateOfBirth = DateTime.Parse("06/16/1964"),
               Address = "62 Colorado Terrace",
-              Gender = "Genderqueer",
-              Role = "Engineer"
+              Gender = "Male",
+              Role = "SDE2"
             },
             new Employee {
               Id = 9,
@@ -107,10 +107,10 @@ namespace EMS_backend.Data.Repositories
               LastName = "Colt",
               Email = "bcolt8@google.cn",
               Phone = "734-456-5468",
-              Birthday = DateTime.Parse("08/02/1986"),
+              DateOfBirth = DateTime.Parse("08/02/1986"),
               Address = "458 Russell Street",
-              Gender = "Bigender",
-              Role = "Construction Expeditor"
+              Gender = "Female",
+              Role = "Project Manager"
             },
             new Employee {
               Id = 10,
@@ -118,10 +118,10 @@ namespace EMS_backend.Data.Repositories
               LastName = "Colgan",
               Email = "dcolgan9@dyndns.org",
               Phone = "214-785-1692",
-              Birthday = DateTime.Parse("03/04/1999"),
+              DateOfBirth = DateTime.Parse("03/04/1999"),
               Address = "72094 Eastwood Point",
-              Gender = "Non-binary",
-              Role = "Subcontractor"
+              Gender = "Female",
+              Role = "Manager"
             },
             new Employee {
               Id = 11,
@@ -129,10 +129,10 @@ namespace EMS_backend.Data.Repositories
               LastName = "Vanin",
               Email = "bvanina@lycos.com",
               Phone = "964-472-7079",
-              Birthday = DateTime.Parse("02/18/1950"),
+              DateOfBirth = DateTime.Parse("02/18/1950"),
               Address = "094 Kings Plaza",
-              Gender = "Agender",
-              Role = "Project Manager"
+              Gender = "Male",
+              Role = "SDE3"
             },
             new Employee {
               Id = 12,
@@ -140,10 +140,10 @@ namespace EMS_backend.Data.Repositories
               LastName = "Wigelsworth",
               Email = "pwigelsworthb@nydailynews.com",
               Phone = "746-157-1424",
-              Birthday = DateTime.Parse("01/06/1966"),
+              DateOfBirth = DateTime.Parse("01/06/1966"),
               Address = "6528 Sutherland Way",
               Gender = "Female",
-              Role = "Supervisor"
+              Role = "SDE1"
             },
             new Employee {
               Id = 13,
@@ -151,10 +151,10 @@ namespace EMS_backend.Data.Repositories
               LastName = "Degg",
               Email = "rdeggc@china.com.cn",
               Phone = "297-820-5206",
-              Birthday = DateTime.Parse("11/04/1947"),
+              DateOfBirth = DateTime.Parse("11/04/1947"),
               Address = "314 Raven Center",
               Gender = "Male",
-              Role = "Supervisor"
+              Role = "SDE2"
             },
             new Employee {
               Id = 14,
@@ -162,10 +162,10 @@ namespace EMS_backend.Data.Repositories
               LastName = "Stuer",
               Email = "rstuerd@studiopress.com",
               Phone = "737-396-9785",
-              Birthday = DateTime.Parse("01/24/1978"),
+              DateOfBirth = DateTime.Parse("01/24/1978"),
               Address = "0480 Quincy Drive",
               Gender = "Male",
-              Role = "Construction Foreman"
+              Role = "SDE1"
             },
             new Employee {
               Id = 15,
@@ -173,10 +173,10 @@ namespace EMS_backend.Data.Repositories
               LastName = "Boughtflower",
               Email = "cboughtflowere@github.io",
               Phone = "123-573-1718",
-              Birthday = DateTime.Parse("07/07/2000"),
+              DateOfBirth = DateTime.Parse("07/07/2000"),
               Address = "669 Packers Avenue",
               Gender = "Male",
-              Role = "Estimator"
+              Role = "SDE1"
             },
             new Employee {
               Id = 16,
@@ -184,10 +184,10 @@ namespace EMS_backend.Data.Repositories
               LastName = "Windas",
               Email = "gwindasf@vinaora.com",
               Phone = "338-349-7294",
-              Birthday = DateTime.Parse("04/11/1973"),
+              DateOfBirth = DateTime.Parse("04/11/1973"),
               Address = "6182 Longview Trail",
-              Gender = "Agender",
-              Role = "Project Manager"
+              Gender = "Male",
+              Role = "Manager"
             },
             new Employee {
               Id = 17,
@@ -195,10 +195,10 @@ namespace EMS_backend.Data.Repositories
               LastName = "Jon",
               Email = "djong@cafepress.com",
               Phone = "826-567-6384",
-              Birthday = DateTime.Parse("03/10/1981"),
+              DateOfBirth = DateTime.Parse("03/10/1981"),
               Address = "7253 Debs Crossing",
-              Gender = "Bigender",
-              Role = "Project Manager"
+              Gender = "Female",
+              Role = "Manager"
             },
             new Employee {
               Id = 18,
@@ -206,10 +206,10 @@ namespace EMS_backend.Data.Repositories
               LastName = "Freshwater",
               Email = "gfreshwaterh@bravesites.com",
               Phone = "683-349-3026",
-              Birthday = DateTime.Parse("05/06/1972"),
+              DateOfBirth = DateTime.Parse("05/06/1972"),
               Address = "2010 Park Meadow Pass",
               Gender = "Female",
-              Role = "Construction Manager"
+              Role = "SDE3"
             },
             new Employee {
               Id = 19,
@@ -217,10 +217,10 @@ namespace EMS_backend.Data.Repositories
               LastName = "Cutsforth",
               Email = "acutsforthi@foxnews.com",
               Phone = "135-286-5674",
-              Birthday = DateTime.Parse("09/05/1992"),
+              DateOfBirth = DateTime.Parse("09/05/1992"),
               Address = "4026 Farwell Street",
-              Gender = "Genderqueer",
-              Role = "Subcontractor"
+              Gender = "Female",
+              Role = "SDE1"
             },
             new Employee {
               Id = 20,
@@ -228,10 +228,10 @@ namespace EMS_backend.Data.Repositories
               LastName = "Origan",
               Email = "woriganj@rakuten.co.jp",
               Phone = "189-400-3639",
-              Birthday = DateTime.Parse("12/02/1941"),
+              DateOfBirth = DateTime.Parse("12/02/1941"),
               Address = "04 Farragut Crossing",
-              Gender = "Agender",
-              Role = "Estimator"
+              Gender = "Male",
+              Role = "SDE2"
             }
         };
 

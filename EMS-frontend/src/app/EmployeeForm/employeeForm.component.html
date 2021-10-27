@@ -1,3 +1,5 @@
+<h3>New Employee Form</h3>
+<br>
 <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="firstName">First Name</label>
@@ -85,16 +87,16 @@
     >
   </span>
   <div class="form-group">
-    <label for="position">Position</label>
+    <label for="role">Role</label>
     <input type="text"
-           id="position"
-           formControlName="address"
+           id="role"
+           formControlName="role"
            class="form-control" />
     <span *ngIf="
-                !employeeForm.get('position')!.valid &&
-                employeeForm.get('position')!.touched
+                !employeeForm.get('role')!.valid &&
+                employeeForm.get('role')!.touched
               "
-          class="help-block">Please enter a valid position!</span>
+          class="help-block">Please enter a valid role!</span>
   </div>
-  <button class="btn btn-primary" type="submit">Submit</button>
+  <button [disabled]="!employeeForm.valid" class="btn btn-primary" type="submit">Submit</button>
 </form>

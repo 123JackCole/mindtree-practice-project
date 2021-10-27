@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
+import { Component, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
+import { iEmployee } from './Employee/iEmployee.model';
 
 @Component({
   selector: 'app-root',
@@ -8,37 +9,25 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'EMS';
-  genders = ['male', 'female'];
-  employeeForm!: FormGroup;
+  loadedFeature = 'employeeList';
 
   constructor(private http: HttpClient) { }
 
+  employeesData: iEmployee[] = [];
+
   ngOnInit() {
     this.fetchEmployees();
-    this.employeeForm = new FormGroup({
-      'firstName': new FormControl(null, Validators.required),
-      'lastName': new FormControl(null, Validators.required),
-      'email': new FormControl(null, [Validators.email, Validators.required]),
-      'phone': new FormControl(null, Validators.required),
-      'dateOfBirth': new FormControl(Date.now, Validators.required),
-      'address': new FormControl(null, Validators.required),
-      'gender': new FormControl('male'),
-      'position': new FormControl('SDE1', Validators.required),
-    });
   }
 
-  onSubmit() {
-    console.log(this.employeeForm)
-  }
-
-  onCreateEmployee() {
-
+  onNavigate(feature: string) {
+    this.loadedFeature = feature;
   }
 
   private fetchEmployees() {
-    this.http.get('https://localhost:44337/api/employees').subscribe(employees => {
-      console.log(employees);
-    });
+    this.http.get<[iEmployee]>('https://localhost:44337/api/employees')
+      .subscribe(employees => {
+        this.employeesData = employees;
+        //console.log(this.employeesData);
+      });
   }
 }

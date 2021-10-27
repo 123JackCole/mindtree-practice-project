@@ -112,7 +112,7 @@ namespace EMS_backend.Controllers
                     return this.BadRequest($"Employee with Id = {id} not found");
                 }
 
-                employees.DeleteEmployee(employeeToDelete);
+                await employees.DeleteEmployee(employeeToDelete);
                 return this.NoContent();
             }
             catch (Exception)

@@ -1,0 +1,17 @@
+<div class="col-sm-4">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">{{ employeeData.firstName }} {{ employeeData.lastName }}</h4>
+      <p> Role: {{ employeeData.role }}</p>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Email: {{ employeeData.email }}</li>
+        <li class="list-group-item">Phone number: {{ employeeData.phone }}</li>
+        <li class="list-group-item">Date of Birth: {{ employeeData.dateOfBirth }}</li>
+        <li class="list-group-item">Address: {{ employeeData.address }}</li>
+        <li class="list-group-item">Gender: {{ employeeData.gender }}</li>
+      </ul>
+      <a href="#" class="btn btn-primary" (click)="onEdit()">Edit</a> <!-- 'https://localhost:44337/api/employees/CreateEmployee(${})' -->
+      <a href="#" class="btn btn-primary" (click)="onDelete()">Delete</a>
+    </div>
+  </div>
+</div>
