@@ -20,7 +20,8 @@ export class EmployeeComponent {
   }
 
   onDelete() {
-    this.http.delete(`https://localhost:44337/api/employees/${this.employeeData.id}`).subscribe(response => {
+    this.http.delete(`https://localhost:44337/api/employees/${this.employeeData.id}`)
+    .subscribe(response => {
       console.log(response);
     });
   }

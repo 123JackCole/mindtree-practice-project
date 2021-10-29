@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+//using System.Web.Http.OData;
 
 namespace EMS_backend.Controllers
 {
@@ -100,12 +101,14 @@ namespace EMS_backend.Controllers
             }
         }
 
-        [HttpDelete]
-        public async Task<ActionResult> DeleteEmployee(int id)
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(string id)
+        //public async Task<ActionResult> Delete([FromODataUri] string id) //[ODataRoute("DeploymentManifest({id})")]
+
         {
             try
             {
-                var employeeToDelete = await employees.GetEmployee(id);
+                var employeeToDelete = await employees.GetEmployee(Int32.Parse(id));
 
                 if (employeeToDelete == null)
                 {

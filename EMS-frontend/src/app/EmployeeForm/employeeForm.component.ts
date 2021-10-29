@@ -1,5 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Output } from "@angular/core";
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -7,8 +7,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   templateUrl: './employeeForm.component.html'
 })
 export class EmployeeFormComponent {
-  genders = ['male', 'female'];
+  genders = ['Male', 'Female'];
   employeeForm!: FormGroup;
+
+  @Output()
+  formData = new EventEmitter<Object>();
 
   constructor(private http: HttpClient) { }
 
@@ -34,17 +37,8 @@ export class EmployeeFormComponent {
     //    'role': new FormControl(this.employee.role, Validators.required),
     //  });
   }
-
-  createEmployee(data: Object) {
-    this.http.post('https://localhost:44337/api/employees', data).subscribe(response => {
-      console.log(response)
-      // redo fetch employees
-    });
-  }
-
+  
   onSubmit() {
-    console.log(this.employeeForm);
-    console.log(this.employeeForm.value);
-    this.createEmployee(this.employeeForm.value)
+    this.formData.next(this.employeeForm.value);
   }
 }

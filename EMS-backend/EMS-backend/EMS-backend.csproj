@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.OData" Version="5.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\EMS-backend.Data\EMS-backend.Data.csproj" />
   </ItemGroup>
 

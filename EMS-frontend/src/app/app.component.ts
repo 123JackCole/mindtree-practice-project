@@ -1,4 +1,4 @@
-import { Component, Output } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { iEmployee } from './Employee/iEmployee.model';
@@ -9,10 +9,10 @@ import { iEmployee } from './Employee/iEmployee.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  loadedFeature = 'employeeList';
 
   constructor(private http: HttpClient) { }
 
+  loadedFeature = 'employeeList';
   employeesData: iEmployee[] = [];
 
   ngOnInit() {
@@ -23,11 +23,18 @@ export class AppComponent {
     this.loadedFeature = feature;
   }
 
-  private fetchEmployees() {
+  fetchEmployees() {
     this.http.get<[iEmployee]>('https://localhost:44337/api/employees')
       .subscribe(employees => {
         this.employeesData = employees;
         //console.log(this.employeesData);
       });
+  }
+
+  createEmployee(data: Object) {
+    this.http.post('https://localhost:44337/api/employees', data).subscribe(response => {
+      console.log(response);
+      this.fetchEmployees();
+    });
   }
 }
