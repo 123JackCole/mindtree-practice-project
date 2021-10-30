@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { iEmployee } from '../Employee/iEmployee.model';
 
 @Component({
@@ -9,7 +9,12 @@ export class EmployeesComponent {
   @Input()
   employeesData!: iEmployee[];
 
-  ngOnInit() {
-    //console.log(`employees data: ${this.employeesData}`)
+  @Output()
+  deleteEmployee: EventEmitter<number> = new EventEmitter<number>();
+
+  ngOnInit() { }
+
+  removeEmployee(id: number) {
+    this.deleteEmployee.next(id)
   }
 }

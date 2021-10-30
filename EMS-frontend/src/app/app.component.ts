@@ -1,5 +1,5 @@
-import { Component, Input, Output } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { HttpService } from './http.service';
 
 import { iEmployee } from './Employee/iEmployee.model';
 
@@ -10,7 +10,7 @@ import { iEmployee } from './Employee/iEmployee.model';
 })
 export class AppComponent {
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpService: HttpService) { }
 
   loadedFeature = 'employeeList';
   employeesData: iEmployee[] = [];
@@ -24,17 +24,26 @@ export class AppComponent {
   }
 
   fetchEmployees() {
-    this.http.get<[iEmployee]>('https://localhost:44337/api/employees')
+    this.httpService.fetchEmployees()
       .subscribe(employees => {
+        //console.log(employees);
         this.employeesData = employees;
-        //console.log(this.employeesData);
       });
   }
 
-  createEmployee(data: Object) {
-    this.http.post('https://localhost:44337/api/employees', data).subscribe(response => {
-      console.log(response);
-      this.fetchEmployees();
-    });
+  createEmployee(data: iEmployee) {
+    this.httpService.createEmployee(data)
+      .subscribe(response => {
+        //console.log(response);
+        this.fetchEmployees();
+      });
+  }
+
+  deleteEmployee(id: number) {
+    this.httpService.deleteEmployee(id)
+      .subscribe(response => {
+        //console.log(response);
+        this.fetchEmployees();
+      });
   }
 }

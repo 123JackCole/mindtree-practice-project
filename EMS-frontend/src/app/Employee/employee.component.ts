@@ -1,5 +1,5 @@
-import { HttpClient } from "@angular/common/http";
-import { Component, Input } from "@angular/core";
+import { HttpService } from "../http.service";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { iEmployee } from './iEmployee.model';
 
 @Component({
@@ -8,10 +8,13 @@ import { iEmployee } from './iEmployee.model';
 })
 export class EmployeeComponent {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpService) { }
 
   @Input()
   employeeData!: iEmployee;
+
+  @Output()
+  employeeId: EventEmitter<number> = new EventEmitter<number>();
 
   ngOnInit() { }
 
@@ -19,10 +22,7 @@ export class EmployeeComponent {
 
   }
 
-  onDelete() {
-    this.http.delete(`https://localhost:44337/api/employees/${this.employeeData.id}`)
-    .subscribe(response => {
-      console.log(response);
-    });
+  deleteEmployee(id: number) {
+    this.employeeId.next(id);
   }
 }

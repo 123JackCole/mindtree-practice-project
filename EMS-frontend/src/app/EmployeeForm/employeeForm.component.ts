@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, EventEmitter, Output } from "@angular/core";
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { iEmployee } from "../Employee/iEmployee.model";
 
 @Component({
   selector: 'app-employeeForm',
@@ -11,7 +12,7 @@ export class EmployeeFormComponent {
   employeeForm!: FormGroup;
 
   @Output()
-  formData = new EventEmitter<Object>();
+  formData: EventEmitter<iEmployee> = new EventEmitter<iEmployee>();
 
   constructor(private http: HttpClient) { }
 
@@ -24,7 +25,7 @@ export class EmployeeFormComponent {
       'dateOfBirth': new FormControl(Date.now, Validators.required),
       'address': new FormControl(null, Validators.required),
       'gender': new FormControl('male'),
-      'role': new FormControl('SDE1', Validators.required),
+      'role': new FormControl('SDE1', Validators.required)
     });
     //this.employeeForm = new FormGroup({
     //    'firstName': new FormControl(this.employee.firstName, Validators.required),
@@ -37,7 +38,7 @@ export class EmployeeFormComponent {
     //    'role': new FormControl(this.employee.role, Validators.required),
     //  });
   }
-  
+
   onSubmit() {
     this.formData.next(this.employeeForm.value);
   }
