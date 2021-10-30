@@ -36,6 +36,7 @@ export class AppComponent {
       .subscribe(response => {
         //console.log(response);
         this.fetchEmployees();
+        this.loadedFeature = 'employeeList';
       });
   }
 
