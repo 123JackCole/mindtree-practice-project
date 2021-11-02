@@ -10,16 +10,19 @@ export class EmployeeComponent {
 
   constructor(private http: HttpService) { }
 
-  @Input()
-  employeeData!: iEmployee;
+  @Input() employeeData!: iEmployee;
+  formattedDate!: string; 
 
-  @Output()
-  employeeId: EventEmitter<number> = new EventEmitter<number>();
+  @Output() employee: EventEmitter<iEmployee> = new EventEmitter<iEmployee>();
+  @Output() employeeId: EventEmitter<number> = new EventEmitter<number>();
+  @Output() feature: EventEmitter<string> = new EventEmitter<string>();
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.formattedDate = new Date(this.employeeData.dateOfBirth).toLocaleDateString('en-CA');
+  }
 
-  onEdit() {
-
+  editEmployee(employee: iEmployee) {
+    this.employee.next(this.employeeData);
   }
 
   deleteEmployee(id: number) {

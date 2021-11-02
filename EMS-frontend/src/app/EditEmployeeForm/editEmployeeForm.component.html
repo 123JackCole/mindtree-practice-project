@@ -1,6 +1,6 @@
 <h3>New Employee Form</h3>
 <br>
-<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="editEmployeeForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="firstName">First Name</label>
     <input type="text"
@@ -8,8 +8,8 @@
            formControlName="firstName"
            class="form-control" />
     <span *ngIf="
-                !employeeForm.get('firstName')!.valid &&
-                employeeForm.get('firstName')!.touched
+                !editEmployeeForm.get('firstName')!.valid &&
+                editEmployeeForm.get('firstName')!.touched
               "
           class="help-block">Please enter a valid first name!</span>
   </div>
@@ -20,8 +20,8 @@
            formControlName="lastName"
            class="form-control" />
     <span *ngIf="
-                !employeeForm.get('lastName')!.valid &&
-                employeeForm.get('lastName')!.touched
+                !editEmployeeForm.get('lastName')!.valid &&
+                editEmployeeForm.get('lastName')!.touched
               "
           class="help-block">Please enter a valid last name!</span>
   </div>
@@ -32,8 +32,8 @@
            formControlName="email"
            class="form-control" />
     <span *ngIf="
-                !employeeForm.get('email')!.valid &&
-                employeeForm.get('email')!.touched
+                !editEmployeeForm.get('email')!.valid &&
+                editEmployeeForm.get('email')!.touched
               "
           class="help-block">Please enter a valid email!</span>
   </div>
@@ -44,8 +44,8 @@
            formControlName="phone"
            class="form-control" />
     <span *ngIf="
-                !employeeForm.get('phone')!.valid &&
-                employeeForm.get('phone')!.touched
+                !editEmployeeForm.get('phone')!.valid &&
+                editEmployeeForm.get('phone')!.touched
               "
           class="help-block">Please enter a valid phone number!</span>
   </div>
@@ -56,8 +56,8 @@
            formControlName="dateOfBirth"
            class="form-control" />
     <span *ngIf="
-                !employeeForm.get('dateOfBirth')!.valid &&
-                employeeForm.get('dateOfBirth')!.touched
+                !editEmployeeForm.get('dateOfBirth')!.valid &&
+                editEmployeeForm.get('dateOfBirth')!.touched
               "
           class="help-block">Please enter a valid date of birth!</span>
   </div>
@@ -68,11 +68,12 @@
            formControlName="address"
            class="form-control" />
     <span *ngIf="
-                !employeeForm.get('address')!.valid &&
-                employeeForm.get('address')!.touched
+                !editEmployeeForm.get('address')!.valid &&
+                editEmployeeForm.get('address')!.touched
               "
           class="help-block">Please enter a valid address!</span>
   </div>
+  <label>Gender</label>
   <div class="radio" *ngFor="let gender of genders">
     <label>
       <input type="radio" formControlName="gender" [value]="gender" />
@@ -80,7 +81,7 @@
     </label>
   </div>
   <span *ngIf="
-          !employeeForm.get('gender')!.valid && employeeForm.get('gender')!.touched
+          !editEmployeeForm.get('gender')!.valid && editEmployeeForm.get('gender')!.touched
           "
         class="help-block">
     Please enter valid data!
@@ -93,10 +94,10 @@
            formControlName="role"
            class="form-control" />
     <span *ngIf="
-                !employeeForm.get('role')!.valid &&
-                employeeForm.get('role')!.touched
+                !editEmployeeForm.get('role')!.valid &&
+                editEmployeeForm.get('role')!.touched
               "
           class="help-block">Please enter a valid role!</span>
   </div>
-  <button [disabled]="!employeeForm.valid" class="btn btn-primary" type="submit">Submit</button>
+  <button [disabled]="!editEmployeeForm.valid" class="btn btn-primary" type="submit">Submit</button>
 </form>

@@ -6,13 +6,14 @@ import { iEmployee } from '../Employee/iEmployee.model';
   templateUrl: './employees.component.html'
 })
 export class EmployeesComponent {
-  @Input()
-  employeesData!: iEmployee[];
+  @Input() employeesData!: iEmployee[];
 
-  @Output()
-  deleteEmployee: EventEmitter<number> = new EventEmitter<number>();
+  @Output() editEmployee: EventEmitter<iEmployee> = new EventEmitter<iEmployee>();
+  @Output() deleteEmployee: EventEmitter<number> = new EventEmitter<number>();
 
-  ngOnInit() { }
+  changeEmployee(employee: iEmployee) {
+    this.editEmployee.next(employee);
+  }
 
   removeEmployee(id: number) {
     this.deleteEmployee.next(id)

@@ -1,5 +1,5 @@
 <div class="container">
   <div class="row">
-    <app-employee *ngFor="let employee of employeesData" [employeeData]="employee" (employeeId)="removeEmployee($event)"></app-employee>
+    <app-employee *ngFor="let employee of employeesData" [employeeData]="employee" (employeeId)="removeEmployee($event)" (employee)="changeEmployee($event)"></app-employee>
   </div>
 </div>

@@ -14,6 +14,7 @@ export class AppComponent {
 
   loadedFeature = 'employeeList';
   employeesData: iEmployee[] = [];
+  employeeData!: iEmployee;
 
   ngOnInit() {
     this.fetchEmployees();
@@ -28,6 +29,7 @@ export class AppComponent {
       .subscribe(employees => {
         //console.log(employees);
         this.employeesData = employees;
+        this.loadedFeature = 'employeeList';
       });
   }
 
@@ -36,8 +38,20 @@ export class AppComponent {
       .subscribe(response => {
         //console.log(response);
         this.fetchEmployees();
-        this.loadedFeature = 'employeeList';
       });
+  }
+
+  openEditForm(data: iEmployee) {
+    this.loadedFeature = "editEmployee";
+    this.employeeData = data;
+  }
+
+  editEmployee(data: iEmployee) {
+    this.httpService.editEmployee(this.employeeData.id, data)
+      .subscribe(response => {
+        //console.log(response);
+        this.fetchEmployees();
+      })
   }
 
   deleteEmployee(id: number) {

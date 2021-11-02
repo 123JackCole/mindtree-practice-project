@@ -7,16 +7,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { EmployeeComponent } from './Employee/employee.component';
 import { EmployeesComponent } from './Employees/employees.component';
-import { EmployeeFormComponent } from './EmployeeForm/employeeForm.component';
+import { NewEmployeeFormComponent } from './NewEmployeeForm/newEmployeeForm.component';
 import { HeaderComponent } from './header/header.component';
+import { EditEmployeeFormComponent } from './EditEmployeeForm/editEmployeeForm.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeComponent,
     EmployeesComponent,
-    EmployeeFormComponent,
-    HeaderComponent
+    NewEmployeeFormComponent,
+    HeaderComponent,
+    EditEmployeeFormComponent
   ],
   imports: [
     BrowserModule,

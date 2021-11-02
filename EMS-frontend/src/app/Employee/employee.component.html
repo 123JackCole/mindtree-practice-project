@@ -6,11 +6,11 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Email: {{ employeeData.email }}</li>
         <li class="list-group-item">Phone number: {{ employeeData.phone }}</li>
-        <li class="list-group-item">Date of Birth: {{ employeeData.dateOfBirth }}</li>
+        <li class="list-group-item">Date of Birth: {{ formattedDate }}</li>
         <li class="list-group-item">Address: {{ employeeData.address }}</li>
         <li class="list-group-item">Gender: {{ employeeData.gender }}</li>
       </ul>
-      <a href="#" class="btn btn-primary" (click)="onEdit()">Edit</a>
+      <a href="#" class="btn btn-primary" (click)="editEmployee(employeeData)">Edit</a>
       <a href="#" class="btn btn-primary" (click)="deleteEmployee(employeeData.id)">Delete</a>
     </div>
   </div>

@@ -1,0 +1,103 @@
+<h3>New Employee Form</h3>
+<br>
+<form [formGroup]="newEmployeeForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input type="text"
+           id="firstName"
+           formControlName="firstName"
+           class="form-control" />
+    <span *ngIf="
+                !newEmployeeForm.get('firstName')!.valid &&
+                newEmployeeForm.get('firstName')!.touched
+              "
+          class="help-block">Please enter a valid first name!</span>
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input type="text"
+           id="lastName"
+           formControlName="lastName"
+           class="form-control" />
+    <span *ngIf="
+                !newEmployeeForm.get('lastName')!.valid &&
+                newEmployeeForm.get('lastName')!.touched
+              "
+          class="help-block">Please enter a valid last name!</span>
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="text"
+           id="email"
+           formControlName="email"
+           class="form-control" />
+    <span *ngIf="
+                !newEmployeeForm.get('email')!.valid &&
+                newEmployeeForm.get('email')!.touched
+              "
+          class="help-block">Please enter a valid email!</span>
+  </div>
+  <div class="form-group">
+    <label for="phone">Phone Number</label>
+    <input type="text"
+           id="phone"
+           formControlName="phone"
+           class="form-control" />
+    <span *ngIf="
+                !newEmployeeForm.get('phone')!.valid &&
+                newEmployeeForm.get('phone')!.touched
+              "
+          class="help-block">Please enter a valid phone number!</span>
+  </div>
+  <div class="form-group">
+    <label for="dateOfBirth">Date of Birth</label>
+    <input type="date"
+           id="dateOfBirth"
+           formControlName="dateOfBirth"
+           class="form-control" />
+    <span *ngIf="
+                !newEmployeeForm.get('dateOfBirth')!.valid &&
+                newEmployeeForm.get('dateOfBirth')!.touched
+              "
+          class="help-block">Please enter a valid date of birth!</span>
+  </div>
+  <div class="form-group">
+    <label for="address">Address</label>
+    <input type="text"
+           id="address"
+           formControlName="address"
+           class="form-control" />
+    <span *ngIf="
+                !newEmployeeForm.get('address')!.valid &&
+                newEmployeeForm.get('address')!.touched
+              "
+          class="help-block">Please enter a valid address!</span>
+  </div>
+  <label>Gender</label>
+  <div class="radio" *ngFor="let gender of genders">
+    <label>
+      <input type="radio" formControlName="gender" [value]="gender" />
+      {{ gender }}
+    </label>
+  </div>
+  <span *ngIf="
+          !newEmployeeForm.get('gender')!.valid && newEmployeeForm.get('gender')!.touched
+          "
+        class="help-block">
+    Please enter valid data!
+    >
+  </span>
+  <div class="form-group">
+    <label for="role">Role</label>
+    <input type="text"
+           id="role"
+           formControlName="role"
+           class="form-control" />
+    <span *ngIf="
+                !newEmployeeForm.get('role')!.valid &&
+                newEmployeeForm.get('role')!.touched
+              "
+          class="help-block">Please enter a valid role!</span>
+  </div>
+  <button [disabled]="!newEmployeeForm.valid" class="btn btn-primary" type="submit">Submit</button>
+</form>

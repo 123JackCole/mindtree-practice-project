@@ -77,16 +77,16 @@ namespace EMS_backend.Controllers
 
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public async Task<ActionResult<Employee>> EditEmployee(int id, Employee editedEmployee)
         {
             try
             {
                 if (id != editedEmployee.Id) return BadRequest("Employee Id does not match");
 
-                var employeeToEdit = await employees.GetEmployee(id);
+                var employeeToEdit = await employees.GetEmployee(editedEmployee.Id);
 
-                if (employeeToEdit == null) return NotFound($"Employee with Id = {id} not found");
+                if (employeeToEdit == null) return NotFound($"Employee with Id = {editedEmployee.Id} not found");
 
                 if (!ModelState.IsValid)
                 {
